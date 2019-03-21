@@ -12,7 +12,7 @@
 
 <ion-content>
 
-    <ion-card *ngFor="let pothole of potholes">
+    <ion-card *ngFor="let pothole of potholes" (click)="onViewPothole(pothole)">
         <ion-card-header>
             <ion-card-subtitle>
                 <ion-item>

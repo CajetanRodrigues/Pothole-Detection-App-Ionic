@@ -10,12 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { SinglePotholeComponent } from './components/single-pothole/single-pothole.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent,
-  MenuItemComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  MenuItemComponent,
+  SinglePotholeComponent],
+  entryComponents: [SinglePotholeComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
