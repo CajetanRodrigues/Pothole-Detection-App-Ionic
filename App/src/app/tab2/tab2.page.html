@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
     <ion-title>
-      Tab Two
+      History
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+    <ion-card *ngFor="let pothole of potholes">
+        <ion-card-header>
+            <ion-card-subtitle>
+                <ion-item>
+                    <ion-icon name="pin" slot="start"></ion-icon>
+                    Lorem ipsum dolor sit amet.
+                  </ion-item>
+            </ion-card-subtitle>
+        </ion-card-header>
+       
+      
+        <ion-card-content>
+            <ion-button fill="outline" slot="end">View</ion-button>
+
+        </ion-card-content>
+      </ion-card>
+      
+</ion-content>

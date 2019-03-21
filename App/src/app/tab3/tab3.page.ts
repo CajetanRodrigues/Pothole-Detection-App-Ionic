@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {}
+export class Tab3Page {
+  potholes : any = [
+    10,20,30,40,50,60,40
+  ]
+}
