@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -9,10 +10,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class Tab1Page {
   currentImage: any;
+  today :string;
 
   constructor(private camera: Camera,
-    private httpClient : HttpClient) { }
+    private httpClient : HttpClient,
+    private geolocation: Geolocation
+   ) { }
+    
   takePicture() {
+    this.getGeolocation();
+    this.getCurrentTime();
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -28,6 +35,7 @@ export class Tab1Page {
      // Handle error
      console.log("Camera issue:" + err);
     });
+    
 
   }
   postPicture(){
@@ -51,6 +59,37 @@ export class Tab1Page {
     });
     
   }
+
+  getGeolocation(){
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+     
+     let watch = this.geolocation.watchPosition();
+     watch.subscribe((data) => {
+      console.log(data.coords.latitude);
+      console.log(data.coords.longitude);
+     });
+    
+  }
+  getCurrentTime(){
+    var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+this.today = mm + '/' + dd + '/' + yyyy;
+console.log(this.today);
+  }
+  }
+
+
+
+
   
 
   
@@ -59,4 +98,4 @@ export class Tab1Page {
     
  
  
-}
+

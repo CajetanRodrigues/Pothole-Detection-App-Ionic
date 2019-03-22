@@ -12,6 +12,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { SinglePotholeComponent } from './components/single-pothole/single-pothole.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     Camera,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],
