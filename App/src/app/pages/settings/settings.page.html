@@ -1,23 +1,45 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
     <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    
+    <ion-card>
+        
+        
+        <ion-card-content>
+            <ion-row>
+                <ion-col>
+                 <p>App Info</p> 
+                </ion-col>
+                <ion-col>
+                  <p> App Name : {{appName}}</p>
+                  <p> App Version Number : {{appVersionNumber}}</p>
+                  <p> App Version Code : {{appVersionCode}}</p>
+                  <p> App Package : {{appPackageName}}</p>
+
+                </ion-col>
+              </ion-row>
+        </ion-card-content>
+      </ion-card>
       <ion-card>
         
         
           <ion-card-content>
               <ion-row>
                   <ion-col>
-                    Battery Status
+                   <p>Battery Status</p> 
                   </ion-col>
                   <ion-col>
-                   Percent : {{percent}} | {{plugStatus}}
+                    <p> Percent : {{percent}}</p>
+                  
                   </ion-col>
                 </ion-row>
           </ion-card-content>
         </ion-card>
+        
 </ion-content>
