@@ -13,6 +13,7 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { SinglePotholeComponent } from './components/single-pothole/single-pothole.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -25,6 +26,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     SplashScreen,
     Camera,
     Geolocation,
+    SocialSharing,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],

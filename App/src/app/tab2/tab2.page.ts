@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Pothole } from '../models/pothole.model';
 import { SinglePotholeComponent } from '../components/single-pothole/single-pothole.component';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -12,7 +13,8 @@ export class Tab2Page {
   potholes : any = [
     10,20,30,40,50,60,40
   ]
-  constructor(public modalController: ModalController){}
+  constructor(public modalController: ModalController,
+    private socialSharing: SocialSharing){}
   
   async onViewPothole(pothole : Pothole) {
     const modal = await this.modalController.create({
@@ -27,4 +29,24 @@ export class Tab2Page {
    });
     return await modal.present();
   };
+  compilemsg(index):string{
+    var msg = 'By The Maverick' ;
+    return msg.concat(" \n Sent from my Awesome App !");
+  }
+  regularShare(index){
+    var msg = this.compilemsg(index);
+    this.socialSharing.share(msg, null, null, null);
+  }
+  whatsappShare(index){
+    var msg  = this.compilemsg(index);
+     this.socialSharing.shareViaWhatsApp(msg, null, null);
+   }
+   twitterShare(index){
+    var msg  = this.compilemsg(index);
+    this.socialSharing.shareViaTwitter(msg, null, null);
+  }
+  facebookShare(index){
+    var msg  = this.compilemsg(index);
+     this.socialSharing.shareViaFacebook(msg, null, null);
+   }
 }

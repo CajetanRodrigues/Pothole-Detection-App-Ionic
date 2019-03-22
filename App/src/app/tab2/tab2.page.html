@@ -12,7 +12,7 @@
 
 <ion-content>
 
-    <ion-card *ngFor="let pothole of potholes" (click)="onViewPothole(pothole)">
+    <ion-card *ngFor="let pothole of potholes" >
         <ion-card-header>
             <ion-card-subtitle>
                 <ion-item>
@@ -24,8 +24,31 @@
        
       
         <ion-card-content>
-            <ion-button fill="outline" slot="end">View</ion-button>
-
+            <ion-button fill="outline" slot="end" (click)="onViewPothole(pothole)">View</ion-button>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button ion-button icon-only (click)="regularShare(i)" color="primary" clear>
+                <ion-icon class="share-icon" name="share"></ion-icon>
+              </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button ion-button icon-only (click)="whatsappShare(i)" color="primary" clear>
+                <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+              </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button ion-button icon-only (click)="facebookShare(i)" color="primary" clear>
+                <ion-icon  class="share-icon" name="logo-facebook"></ion-icon>
+              </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button ion-button icon-only (click)="twitterShare(i)" color="primary" clear>
+                <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+              </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
         </ion-card-content>
       </ion-card>
       
