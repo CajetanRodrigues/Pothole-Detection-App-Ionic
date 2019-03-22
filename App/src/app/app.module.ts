@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
+import { Sensors, TYPE_SENSOR } from '@ionic-native/sensors/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -29,6 +32,9 @@ import { Instagram } from '@ionic-native/instagram/ngx';
     Geolocation,
     SocialSharing,
     Instagram ,
+    Toast,
+    Vibration,
+    Sensors,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],

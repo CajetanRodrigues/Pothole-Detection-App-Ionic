@@ -51,7 +51,7 @@ export class Tab2Page {
     var msg  = this.compilemsg(index);
      this.socialSharing.shareViaFacebook(msg, null, null);
    }
-   instagramShare(){
+   instagramShare(index){
 
     this.instagram.share('https://cdn.road.cc/sites/default/files/styles/main_width/public/images/%5Bparent-node-gallery-title%5D/pot%20hole.jpg?itok=fL-pI5Y0', 'Caption')
   .then(() => console.log('Shared!'))

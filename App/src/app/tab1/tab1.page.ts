@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Sensors, TYPE_SENSOR } from '@ionic-native/sensors/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -15,8 +16,11 @@ export class Tab1Page {
 
   constructor(private camera: Camera,
     private httpClient : HttpClient,
-    private geolocation: Geolocation
-   ) { }
+    private geolocation: Geolocation,
+    private sensors: Sensors
+   ) { 
+    this.sensors.enableSensor(TYPE_SENSOR.LIGHT);
+   }
     
   takePicture() {
     this.getGeolocation();
@@ -62,8 +66,7 @@ export class Tab1Page {
   }
 
   getGeolocation(){
-//https://www.joshmorony.com/ionic-2-how-to-use-google-maps-geolocation-video-tutorial/
-//https://dzone.com/articles/build-an-ionic-app-with-user-authentication-okta-d
+
     this.geolocation.getCurrentPosition().then((resp) => {
       console.log(resp.coords.latitude);
        console.log(resp.coords.longitude);
