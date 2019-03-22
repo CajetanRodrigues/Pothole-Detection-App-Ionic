@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Sensors, TYPE_SENSOR } from '@ionic-native/sensors/ngx';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -17,14 +18,17 @@ export class Tab1Page {
   constructor(private camera: Camera,
     private httpClient : HttpClient,
     private geolocation: Geolocation,
-    private sensors: Sensors
+    private sensors: Sensors,
+    private flashlight: Flashlight
    ) { 
-    this.sensors.enableSensor(TYPE_SENSOR.LIGHT);
+    
    }
     
   takePicture() {
     this.getGeolocation();
     this.getCurrentTime();
+    this.sensors.enableSensor(TYPE_SENSOR.LIGHT);
+    this.flashlight.switchOn();
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -94,6 +98,7 @@ this.date = mm + '/' + dd + '/' + yyyy;
 this.time = hours+':'+minutes+':'+seconds;
 console.log(this.date +'      '+   this.time);
   }
+ 
   }
 
 

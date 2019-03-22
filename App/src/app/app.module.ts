@@ -18,6 +18,8 @@ import { Instagram } from '@ionic-native/instagram/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 import { Sensors, TYPE_SENSOR } from '@ionic-native/sensors/ngx';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -35,6 +37,8 @@ import { Sensors, TYPE_SENSOR } from '@ionic-native/sensors/ngx';
     Toast,
     Vibration,
     Sensors,
+    Flashlight,
+    EmailComposer ,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],

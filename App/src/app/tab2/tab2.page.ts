@@ -4,6 +4,7 @@ import { Pothole } from '../models/pothole.model';
 import { SinglePotholeComponent } from '../components/single-pothole/single-pothole.component';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -16,7 +17,8 @@ export class Tab2Page {
   ]
   constructor(public modalController: ModalController,
     private socialSharing: SocialSharing,
-    private instagram: Instagram){}
+    private instagram: Instagram,
+    private emailComposer: EmailComposer){}
   
   async onViewPothole(pothole : Pothole) {
     const modal = await this.modalController.create({
@@ -57,4 +59,26 @@ export class Tab2Page {
   .then(() => console.log('Shared!'))
   .catch((error: any) => console.error(error));
    }
+   composeEmail(){
+    this.emailComposer.isAvailable().then((available: boolean) =>{
+      if(available) {
+        //Now we know we can send
+      }
+     });
+     
+     let email = {
+       to: 'rigrodtan@gmail.com',
+       cc: 'erika@mustermann.de',
+       bcc: ['john@doe.com', 'jane@doe.com'],
+       attachments: [
+         
+       ],
+       subject: 'Email Composed Success',
+       body: 'How are you? Nice greetings from Maverick',
+       isHtml: true
+     }
+     
+     // Send a text message using default options
+     this.emailComposer.open(email);
+  }
 }
