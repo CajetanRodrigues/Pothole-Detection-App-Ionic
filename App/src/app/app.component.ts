@@ -29,6 +29,16 @@ export class AppComponent {
       title: 'Logout',
       url: '/login',
       icon: 'log-out'
+    },
+    {
+      title: 'Contact',
+      url: '/contact',
+      icon: 'call'
+    },
+    {
+      title: 'Settings',
+      url: '/settings',
+      icon: 'settings'
     }
   ];
   constructor(

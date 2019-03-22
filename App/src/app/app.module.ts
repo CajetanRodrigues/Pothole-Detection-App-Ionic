@@ -21,6 +21,7 @@ import { Sensors, TYPE_SENSOR } from '@ionic-native/sensors/ngx';
 import { Flashlight } from '@ionic-native/flashlight/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { BatteryStatus } from '@ionic-native/battery-status/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -41,6 +42,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
     Flashlight,
     EmailComposer ,
     CallNumber ,
+    BatteryStatus ,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],
