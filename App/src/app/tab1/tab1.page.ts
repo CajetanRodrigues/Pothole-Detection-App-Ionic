@@ -10,7 +10,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class Tab1Page {
   currentImage: any;
-  today :string;
+  date :string;
+  time : string;
 
   constructor(private camera: Camera,
     private httpClient : HttpClient,
@@ -61,10 +62,11 @@ export class Tab1Page {
   }
 
   getGeolocation(){
-
+//https://www.joshmorony.com/ionic-2-how-to-use-google-maps-geolocation-video-tutorial/
+//https://dzone.com/articles/build-an-ionic-app-with-user-authentication-okta-d
     this.geolocation.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
+      console.log(resp.coords.latitude);
+       console.log(resp.coords.longitude);
      }).catch((error) => {
        console.log('Error getting location', error);
      });
@@ -81,9 +83,13 @@ export class Tab1Page {
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
+var seconds = today.getSeconds();
+var minutes = today.getMinutes();
+var hours = today.getHours();
 
-this.today = mm + '/' + dd + '/' + yyyy;
-console.log(this.today);
+this.date = mm + '/' + dd + '/' + yyyy;
+this.time = hours+':'+minutes+':'+seconds;
+console.log(this.date +'      '+   this.time);
   }
   }
 
