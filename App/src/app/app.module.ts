@@ -14,6 +14,7 @@ import { SinglePotholeComponent } from './components/single-pothole/single-potho
 import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Instagram } from '@ionic-native/instagram/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -27,6 +28,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
     Camera,
     Geolocation,
     SocialSharing,
+    Instagram ,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],

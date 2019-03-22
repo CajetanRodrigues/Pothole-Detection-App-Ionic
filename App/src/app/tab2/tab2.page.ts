@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { Pothole } from '../models/pothole.model';
 import { SinglePotholeComponent } from '../components/single-pothole/single-pothole.component';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Instagram } from '@ionic-native/instagram/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -14,7 +15,8 @@ export class Tab2Page {
     10,20,30,40,50,60,40
   ]
   constructor(public modalController: ModalController,
-    private socialSharing: SocialSharing){}
+    private socialSharing: SocialSharing,
+    private instagram: Instagram){}
   
   async onViewPothole(pothole : Pothole) {
     const modal = await this.modalController.create({
@@ -48,5 +50,11 @@ export class Tab2Page {
   facebookShare(index){
     var msg  = this.compilemsg(index);
      this.socialSharing.shareViaFacebook(msg, null, null);
+   }
+   instagramShare(){
+
+    this.instagram.share('https://cdn.road.cc/sites/default/files/styles/main_width/public/images/%5Bparent-node-gallery-title%5D/pot%20hole.jpg?itok=fL-pI5Y0', 'Caption')
+  .then(() => console.log('Shared!'))
+  .catch((error: any) => console.error(error));
    }
 }
