@@ -23,6 +23,7 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { BatteryStatus } from '@ionic-native/battery-status/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -45,6 +46,7 @@ import { AppVersion } from '@ionic-native/app-version/ngx';
     CallNumber ,
     BatteryStatus ,
     AppVersion,
+    VideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],
