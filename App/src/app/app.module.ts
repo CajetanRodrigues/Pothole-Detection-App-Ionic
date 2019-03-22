@@ -20,6 +20,7 @@ import { Toast } from '@ionic-native/toast/ngx';
 import { Sensors, TYPE_SENSOR } from '@ionic-native/sensors/ngx';
 import { Flashlight } from '@ionic-native/flashlight/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -39,6 +40,7 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
     Sensors,
     Flashlight,
     EmailComposer ,
+    CallNumber ,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     
   ],
